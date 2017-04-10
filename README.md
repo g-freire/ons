@@ -1,6 +1,5 @@
+// Run *scala-shell* command to start Spark CLI environment
 
-# // Run *scala-shell* command to start Spark CLI environment
-
-# scala>:load ons.scala     //loading ons.scala file
+scala>*:load ons.scala*     //loading ons.scala file
 
 
