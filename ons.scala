@@ -1,6 +1,5 @@
 // Fonte:http://www.ons.org.br/historico/geracao_energia.aspx
 // Formatar dados  para .csv contendo os períodes entre 2017 e 2002 ou o desejado
-// Observar em 2002 -  " A crise do apagao"
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.ml.feature.VectorAssembler
