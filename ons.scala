@@ -12,3 +12,5 @@ val data = spark.read.option("header","true").option("inferSchema","true").csv("
     println("--------+  Fonte: ONS                                ")
     println("")
 data.show()
+//Filtrando Linha MES Fevereiro
+data.filter($"Mês" === "Fev").show()
