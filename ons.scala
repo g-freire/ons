@@ -26,7 +26,7 @@ val data = spark.read.option("header","true").option("inferSchema","true").csv("
  //vector assembler for ml     // ("label","features")
   val df = data.select(data("0").as("label"),$"1",$"2",$"3",$"4",$"5",$"6",$"7",$"8",$"9",$"10",$"11",$"12")
 //Criacao de vetor necessario para o treinamento do algoritmo de ML
-  val assembler = new VectorAssembler().setInputCols(Array($"1",$"2",$"3",$"4",$"5",$"6",$"7",$"8",$"9",$"10",$"11",$"12")).setOutputCol("features")
+  val assembler = new VectorAssembler().setInputCols(Array("1","2","3","4","5","6","7","8","9","10","11","12")).setOutputCol("features")
 //Transformando vetor em duas colunas
   val output = assembler.transform(df).select($"label",$"features")
 // Criacao de modelo de Regressao Linear
