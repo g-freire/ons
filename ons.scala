@@ -19,20 +19,15 @@ val data = spark.read.option("header","true").option("inferSchema","true").csv("
     println("--------+  Fonte: ONS                                ");println("");
  //data.printSchema()   // conferindo tipagem
  data.show();println("");
-  println("Mes de Maio");println("");data.select($"0",$"5").show();println(""); //Seleciona coluna 5
+  println("Somente mês de Maio");println("");data.select($"0",$"5").show();println(""); //Seleciona coluna 5
  // println("Mes de Maio acima de 35000 GWh/h");println("");data.filter($"5" > 35000).show(); //Mes Maio com producao acima de 35000 GW/h
  // println("Melhores meses de maio");println("");data.filter($"5" > 35000).show(); //Mes Maio com producao acima de 35000 GW/h
  println("");println("--------+ Estatistica Inicial dos Dados( stddev, mean, count, max, min)");println("");data.describe().show();println("");
  //Vector assembler for ml     // ("label","features")
- println("");println("--------+ Inicio treinamento");println("");data.describe().show();println("");
-
+ println("");println("--------+ Inicio treinamento");println("");
   val df = data.select(data("0").as("label"),$"4",$"5",$"6",$"7",$"8",$"9",$"10",$"11")
 //Criacao de vetor necessario para o treinamento do algoritmo de ML
-<<<<<<< HEAD
   val assembler = new VectorAssembler().setInputCols(Array("4","5","6","7","8","9","10","11")).setOutputCol("features"); // strings
-=======
-  val assembler = new VectorAssembler().setInputCols(Array("1","2","3","4","5","6","7","8","9","10","11","12")).setOutputCol("features")
->>>>>>> 6e3612205f4a7f5de5fd602ed1bad1db6cf9bfa2
 //Transformando vetor em duas colunas
   println("");val output = assembler.transform(df).select($"label",$"features");println("");
 // Criacao de modelo de Regressao Linear
@@ -47,7 +42,7 @@ println(s"numIterations: ${trainingSummary.totalIterations}")
 println(s"objectiveHistory: ${trainingSummary.objectiveHistory.toList}");println("");
 //Mostra os residuos da RL
 trainingSummary.residuals.show()
-println("");println("--------+");println("");
+println("");println("------------------------------------------------+");println("");
 println(s"RMSE (rootMeanSquaredError): ${trainingSummary.rootMeanSquaredError}");println("");
 println(s"MSE (meanSquaredError): ${trainingSummary.meanSquaredError}");println("");
-println(s"r2 (linear regression): ${trainingSummary.r2}");println("");println("--------+");
+println(s"r2 (linear regression): ${trainingSummary.r2}");println("");println("------------------------------------------------+");
