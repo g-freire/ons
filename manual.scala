@@ -26,4 +26,13 @@ val df = spark.read.json("stocks.json")   //conferir tipagem
 val somefunction=(a:type,b:type,c:type)=>a*pow(1+b,c);
 val callingfunction = somefunction(a,b,c);
 
+val newList = array1 ++ array2.map(_ * 2)  //high order functions
+
+// PrintWriter to external file
+import java.io._
+val pw = new PrintWriter(new File("hello.txt" ))
+pw.write("Hello, world")
+pw.close
+
+
 */
