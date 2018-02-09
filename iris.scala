@@ -9,19 +9,23 @@ import org.apache.spark.ml.regression.LinearRegression
 import org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit}
 import org.apache.log4j._
 
-Logger.getLogger("org").setLevel(Level.ERROR) // regula nivel de erros do logger
+// regula nivel de erros do logger
+Logger.getLogger("org").setLevel(Level.ERROR)
+// inicio sessao spark
+val spark = SparkSession.builder().getOrCreate();
 
-val spark = SparkSession.builder().getOrCreate(); // inicio sessao spark
 val data = spark.read.option("header","true").option("inferSchema","true").csv("iris.csv"); // conferirindo tipagem & importando banco dados
     println("");println("");
     println("--------+  IRIS DATA-SET   ");
-     println("");
+    println("");
  //data.printSchema()   // conferindo tipagem
  data.show();println("");
  // println("Mes de Maio acima de 35000 GWh/h");println("");data.filter($"5" > 35000).show(); //Mes Maio com producao acima de 35000 GW/h
  // println("Melhores meses de maio");println("");data.filter($"5" > 35000).show(); //Mes Maio com producao acima de 35000 GW/h
  println("");println("--------+ Estatistica Inicial dos Dados(stddev, mean, count, max, min)");println("");data.describe().show();println("");
- //Vector assembler for ml     // ("label","features")
+
+
+//Vector assembler for ml     // ("label","features")
 //  println("");println("--------+ Inicio treinamento");println("");
 //   val df = data.select(data("0").as("label"),$"4",$"5",$"6",$"7",$"8",$"9",$"10",$"11")
 // //Criacao de vetor necessario para o treinamento do algoritmo de ML
