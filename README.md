@@ -1,7 +1,7 @@
 # Linear Regression Analysis
 
 ## Steps to run:
-#### Start Spark CLI  SDK
+#### Start Scala Spark CLI  
 ```diff
 + $ spark-shell
 + scala> :load ons-r^2.scala
@@ -10,6 +10,6 @@ or
  ```
 
 ### expected output:
-![Screenshot](pyrobot.png)
+![Screenshot](spark-out.png)
 
 
