@@ -1,3 +1,15 @@
-// Run *scala-shell* command to start Spark CLI 
+# Linear Regression Analysis
 
-scala>*:load ons.scala*     
+## Steps to run:
+#### Start Spark CLI  SDK
+```diff
++ $ spark-shell
++ scala> :load ons-r^2.scala
+or
++ scala> :load iris.scala
+ ```
+
+### expected output:
+![Screenshot](pyrobot.png)
+
+
